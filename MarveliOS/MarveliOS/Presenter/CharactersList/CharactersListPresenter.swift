@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+protocol CharactersListPresenterDelegate: class {
+    func showCharacterDetail()
+}
+
+class CharactersListPresenter {
+    let charactersListProtocol: CharacterListProtocol
+    weak var delegate: CharactersListPresenterDelegate?
+    let searchService = SearchService()
+    var arrCharacters: [Character] = []
+    
+    init(charactersListProtocol: CharacterListProtocol, delegate: CharactersListPresenterDelegate?) {
+        self.charactersListProtocol = charactersListProtocol
+        self.delegate = delegate
+    }
+}

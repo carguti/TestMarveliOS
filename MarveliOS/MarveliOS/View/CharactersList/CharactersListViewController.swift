@@ -8,11 +8,50 @@
 
 import UIKit
 
-class CharactersListViewController: UIViewController {
+protocol CharacterListProtocol: class {
+    
+}
 
+class CharactersListViewController: UIViewController {
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var presenter: CharactersListPresenter?
+    let searchService = SearchService()
+    
+    var arrCharacters: [Character] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        configureTable()
     }
+}
+
+extension CharactersListViewController {
+    private func configureTable() {
+         tableView.register(UINib(nibName: "CharactersListTableViewCell", bundle: nil), forCellReuseIdentifier: "CharactersListTableViewCell")
+    }
+}
+
+extension CharactersListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrCharacters.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let characterCell = tableView.dequeueReusableCell(withIdentifier: "CharactersListTableViewCell", for: indexPath) as! CharactersListTableViewCell
+        characterCell.configureWithCharacter(character: self.arrCharacters[indexPath.row])
+        
+        return characterCell
+    }
+}
+
+extension CharactersListViewController: UITableViewDelegate {
+    
+}
+
+extension CharactersListViewController: CharacterListProtocol {
+    
 }

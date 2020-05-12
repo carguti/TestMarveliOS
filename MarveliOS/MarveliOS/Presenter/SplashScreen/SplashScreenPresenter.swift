@@ -9,12 +9,14 @@
 import Foundation
 
 protocol SplashScreenPresenterDelegate: class {
-    func goToCharactersList()
+    func goToCharactersList(characters: [Character]?)
 }
 
 class SplashScreenPresenter {
     let splashScreenProtocol: SplashScreenProtocol
     weak var delegate: SplashScreenPresenterDelegate?
+    let searchService = SearchService()
+    var arrCharacters: [Character] = []
     
     init(splashScreenProtocol: SplashScreenProtocol, delegate: SplashScreenPresenterDelegate?) {
         self.splashScreenProtocol = splashScreenProtocol
@@ -22,6 +24,9 @@ class SplashScreenPresenter {
     }
     
     func splashScreenShown() {
-        delegate?.goToCharactersList()
+        searchService.getCharacters(name: nil) { characters in
+            guard let charactersList = characters.data?.results else { return }
+            self.delegate?.goToCharactersList(characters: charactersList)
+        }
     }
 }

@@ -16,4 +16,14 @@ struct SplashScreenFactory {
         viewController.presenter = presenter
         return viewController
     }
+    
+    static func makeCharacteresList(delegate: CharactersListPresenterDelegate?, characters: [Character]?) -> CharactersListViewController {
+        let viewController = CharactersListViewController()
+        let presenter = CharactersListPresenter(charactersListProtocol: viewController, delegate: delegate)
+        viewController.presenter = presenter
+        if let arrCharacters = characters {
+            viewController.arrCharacters = arrCharacters
+        }
+        return viewController
+    }
 }
