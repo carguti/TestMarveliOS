@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C04E2BAA246AF46600892B8F /* UIImageView+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E2BA9246AF46600892B8F /* UIImageView+Async.swift */; };
+		C04E2BAE246AFFC900892B8F /* CharacterDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E2BAD246AFFC900892B8F /* CharacterDetailPresenter.swift */; };
+		C04E2BB1246AFFE300892B8F /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E2BAF246AFFE300892B8F /* CharacterDetailViewController.swift */; };
+		C04E2BB2246AFFE300892B8F /* CharacterDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C04E2BB0246AFFE300892B8F /* CharacterDetailViewController.xib */; };
+		C04E2BB4246B105600892B8F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E2BB3246B105600892B8F /* UIView+Extension.swift */; };
+		C04E2BB6246B51CD00892B8F /* CharacterDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E2BB5246B51CD00892B8F /* CharacterDetailFactory.swift */; };
 		C0600FEF24668E37009FB024 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0600FEE24668E37009FB024 /* AppDelegate.swift */; };
 		C0600FF324668E37009FB024 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0600FF224668E37009FB024 /* ViewController.swift */; };
 		C0600FF824668E39009FB024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0600FF724668E39009FB024 /* Assets.xcassets */; };
@@ -33,7 +37,11 @@
 /* Begin PBXFileReference section */
 		9902715AF56F15A397DCC053 /* Pods-MarveliOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarveliOS.debug.xcconfig"; path = "Target Support Files/Pods-MarveliOS/Pods-MarveliOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9EBAC7F8CD854389FA18EB41 /* Pods-MarveliOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarveliOS.release.xcconfig"; path = "Target Support Files/Pods-MarveliOS/Pods-MarveliOS.release.xcconfig"; sourceTree = "<group>"; };
-		C04E2BA9246AF46600892B8F /* UIImageView+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Async.swift"; sourceTree = "<group>"; };
+		C04E2BAD246AFFC900892B8F /* CharacterDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresenter.swift; sourceTree = "<group>"; };
+		C04E2BAF246AFFE300892B8F /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		C04E2BB0246AFFE300892B8F /* CharacterDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailViewController.xib; sourceTree = "<group>"; };
+		C04E2BB3246B105600892B8F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C04E2BB5246B51CD00892B8F /* CharacterDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailFactory.swift; sourceTree = "<group>"; };
 		C0600FEB24668E37009FB024 /* MarveliOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarveliOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0600FEE24668E37009FB024 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0600FF224668E37009FB024 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +84,6 @@
 				9902715AF56F15A397DCC053 /* Pods-MarveliOS.debug.xcconfig */,
 				9EBAC7F8CD854389FA18EB41 /* Pods-MarveliOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -91,9 +98,27 @@
 		C04E2BA8246AF44400892B8F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C04E2BA9246AF46600892B8F /* UIImageView+Async.swift */,
+				C04E2BB3246B105600892B8F /* UIView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C04E2BAB246AFF0700892B8F /* CharacterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C04E2BAF246AFFE300892B8F /* CharacterDetailViewController.swift */,
+				C04E2BB0246AFFE300892B8F /* CharacterDetailViewController.xib */,
+			);
+			path = CharacterDetail;
+			sourceTree = "<group>";
+		};
+		C04E2BAC246AFF1500892B8F /* CharacterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C04E2BAD246AFFC900892B8F /* CharacterDetailPresenter.swift */,
+				C04E2BB5246B51CD00892B8F /* CharacterDetailFactory.swift */,
+			);
+			path = CharacterDetail;
 			sourceTree = "<group>";
 		};
 		C0600FE224668E37009FB024 = {
@@ -154,6 +179,7 @@
 		C060100424668F9A009FB024 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C04E2BAB246AFF0700892B8F /* CharacterDetail */,
 				C060102724684AF5009FB024 /* CharactersList */,
 				C060101D24684749009FB024 /* SplashScreen */,
 			);
@@ -163,6 +189,7 @@
 		C060100524668FA6009FB024 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				C04E2BAC246AFF1500892B8F /* CharacterDetail */,
 				C060102C24684B1E009FB024 /* CharactersList */,
 				C06010222468480D009FB024 /* SplashScreen */,
 			);
@@ -295,6 +322,7 @@
 				C060102124684773009FB024 /* SplashScreenViewController.xib in Resources */,
 				C0600FF824668E39009FB024 /* Assets.xcassets in Resources */,
 				C06010352468711D009FB024 /* CharactersListTableViewCell.xib in Resources */,
+				C04E2BB2246AFFE300892B8F /* CharacterDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,16 +380,19 @@
 				C060100724669019009FB024 /* AppCoordinator.swift in Sources */,
 				C06010242468481D009FB024 /* SplashScreenPresenter.swift in Sources */,
 				C060100B24669030009FB024 /* GeneralCoordinator.swift in Sources */,
+				C04E2BB1246AFFE300892B8F /* CharacterDetailViewController.swift in Sources */,
 				C060102E24684B30009FB024 /* CharactersListPresenter.swift in Sources */,
+				C04E2BB4246B105600892B8F /* UIView+Extension.swift in Sources */,
 				C0600FF324668E37009FB024 /* ViewController.swift in Sources */,
 				C060100924669025009FB024 /* CoordinatorProtocol.swift in Sources */,
-				C04E2BAA246AF46600892B8F /* UIImageView+Async.swift in Sources */,
 				C0600FEF24668E37009FB024 /* AppDelegate.swift in Sources */,
 				C06010112466B07F009FB024 /* RespModel.swift in Sources */,
 				C06010162466F35F009FB024 /* SearchService.swift in Sources */,
+				C04E2BAE246AFFC900892B8F /* CharacterDetailPresenter.swift in Sources */,
 				C060102024684773009FB024 /* SplashScreenViewController.swift in Sources */,
 				C060102624684869009FB024 /* SplashScreenFactory.swift in Sources */,
 				C060103024684B3F009FB024 /* CharactersListFactory.swift in Sources */,
+				C04E2BB6246B51CD00892B8F /* CharacterDetailFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,7 +33,5 @@ extension CharactersListTableViewCell {
         guard let imageExtension = character.thumbnail?.imageExtension else { return }
         let imageType = "/landscape_small."
         backgroundImageView.sd_setImage(with: URL(string: path+imageType+imageExtension), placeholderImage: nil)
-        
-        var i = 0
     }
 }

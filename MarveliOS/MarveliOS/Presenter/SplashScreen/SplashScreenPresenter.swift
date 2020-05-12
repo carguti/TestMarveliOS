@@ -17,6 +17,8 @@ class SplashScreenPresenter {
     weak var delegate: SplashScreenPresenterDelegate?
     let searchService = SearchService()
     var arrCharacters: [Character] = []
+    private let limit = 100
+    private var offset = 0
     
     init(splashScreenProtocol: SplashScreenProtocol, delegate: SplashScreenPresenterDelegate?) {
         self.splashScreenProtocol = splashScreenProtocol
@@ -24,8 +26,9 @@ class SplashScreenPresenter {
     }
     
     func splashScreenShown() {
-        searchService.getCharacters(name: nil) { characters in
+        searchService.getCharacters(name: nil, limit: limit, offset: offset) { characters in
             guard let charactersList = characters.data?.results else { return }
+            self.arrCharacters.append(contentsOf: charactersList)
             self.delegate?.goToCharactersList(characters: charactersList)
         }
     }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CharactersListPresenterDelegate: class {
-    func showCharacterDetail()
+    func showCharacterDetail(character: Character?)
 }
 
 class CharactersListPresenter {
@@ -21,5 +21,9 @@ class CharactersListPresenter {
     init(charactersListProtocol: CharacterListProtocol, delegate: CharactersListPresenterDelegate?) {
         self.charactersListProtocol = charactersListProtocol
         self.delegate = delegate
+    }
+    
+    func didSelectedCharacter(character: Character) {
+        self.delegate?.showCharacterDetail(character: character)
     }
 }

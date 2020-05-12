@@ -21,6 +21,7 @@ class CharactersListViewController: UIViewController {
     let searchService = SearchService()
     
     var arrCharacters: [Character] = []
+    var selectedCharacter: Character?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,12 @@ extension CharactersListViewController: UITableViewDataSource {
 }
 
 extension CharactersListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCharacter = arrCharacters[indexPath.row]
+        if let selectedCharacted = selectedCharacter {
+            presenter?.didSelectedCharacter(character: selectedCharacted)
+        }
+    }
 }
 
 extension CharactersListViewController: CharacterListProtocol {

@@ -32,6 +32,11 @@ extension GeneralCoordinator {
         let scene = SplashScreenFactory.makeCharacteresList(delegate: self, characters: characters)
         navigationController.viewControllers = [scene]
     }
+    
+    func showCharacterDetailScreen(character: Character) {
+        let scene = CharactersListFactory.makeCharacterDetail(delegate: self, character: character)
+        navigationController.viewControllers = [scene]
+    }
 }
 
 extension GeneralCoordinator: SplashScreenPresenterDelegate {
@@ -41,7 +46,13 @@ extension GeneralCoordinator: SplashScreenPresenterDelegate {
 }
 
 extension GeneralCoordinator: CharactersListPresenterDelegate {
-    func showCharacterDetail() {
-        
+    func showCharacterDetail(character: Character?) {
+        if let character = character {
+            showCharacterDetailScreen(character: character)
+        }
     }
+}
+
+extension GeneralCoordinator: CharacterDetailPresenterDelegate {
+    
 }
