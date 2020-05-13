@@ -19,6 +19,7 @@ class SplashScreenPresenter {
     var arrCharacters: [Character] = []
     private let limit = 100
     private var offset = 0
+    var progress: Double = 0
     
     init(splashScreenProtocol: SplashScreenProtocol, delegate: SplashScreenPresenterDelegate?) {
         self.splashScreenProtocol = splashScreenProtocol
@@ -29,7 +30,15 @@ class SplashScreenPresenter {
         searchService.getCharacters(name: nil, limit: limit, offset: offset) { characters in
             guard let charactersList = characters.data?.results else { return }
             self.arrCharacters.append(contentsOf: charactersList)
-            self.delegate?.goToCharactersList(characters: charactersList)
+            self.offset = self.offset + self.limit
+            self.progress = self.progress + 0.072
+            self.splashScreenProtocol.progressUpdated(progress: self.progress)
+            guard let total = characters.data?.total else { return }
+            if self.offset <= total {
+                self.splashScreenShown()
+            } else {
+                self.delegate?.goToCharactersList(characters: self.arrCharacters)
+            }
         }
     }
 }

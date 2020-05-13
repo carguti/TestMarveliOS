@@ -9,11 +9,12 @@
 import UIKit
 
 protocol SplashScreenProtocol: class {
-    
+    func progressUpdated(progress: Double)
 }
 
 class SplashScreenViewController: UIViewController {
     var presenter: SplashScreenPresenter?
+    @IBOutlet weak var progressBar: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +32,7 @@ extension SplashScreenViewController {
 }
 
 extension SplashScreenViewController: SplashScreenProtocol {
-    
+    func progressUpdated(progress: Double) {
+        self.progressBar.progress = Float(progress)
+    }
 }
