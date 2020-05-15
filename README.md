@@ -15,7 +15,7 @@ In this architecture View layer only knows what to show, nothing else, that come
 
 I have added a SplashScreen because the MarvelAPI doesn't accept real pagination requests, so you should do several request changing the parameter "offset", increasing it at a maximum of 100 in every request, so you only get 100 characters from request, and this is a time handicap for the App, so I used SplashScreen with a ProgressBar to show the loading progress to user.
 
-## Use of frameworks
+## Use of Frameworks
 
 I added SDWebImage to download character images.
 
