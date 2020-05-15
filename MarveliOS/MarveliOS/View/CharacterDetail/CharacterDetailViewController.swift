@@ -13,11 +13,14 @@ protocol CharacterDetailProtocol: class {
 }
 
 class CharacterDetailViewController: UIViewController {
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var characterNameLabel: UILabel!
     @IBOutlet weak var characterDescriptionLabel: UILabel!
+    @IBOutlet weak var buttonBack: UIButton!
     
     var presenter: CharacterDetailPresenter?
     var character: Character?
+    let imageType = "/portrait_incredible."
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +30,27 @@ class CharacterDetailViewController: UIViewController {
             self.configureView(character: characterData[0])
         })
     }
+    
+    @IBAction func buttonBackPressed(_ sender: Any) {
+        presenter?.buttonBackPressed()
+    }
 }
 
 extension CharacterDetailViewController {
     func configureView(character: Character) {
         characterNameLabel.text = character.name
         characterDescriptionLabel.text = character.description
-        self.view.setNeedsDisplay()
+        guard var path = character.thumbnail?.path else { return }
+        path.insert("s", at: path.index(path.startIndex, offsetBy: +4))
+        guard let imageExtension = character.thumbnail?.imageExtension else { return }
+        
+        getImage(urlString: path+imageType+imageExtension) { backgroundImage in
+            self.view.setNeedsDisplay()
+        }
+    }
+    
+    func getImage(urlString: String, completion: @escaping (UIImage) -> ()) {
+        backgroundImageView.sd_setImage(with: URL(string: urlString), placeholderImage: nil)
     }
 }
 

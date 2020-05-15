@@ -16,7 +16,7 @@ class SplashScreenPresenter {
     let splashScreenProtocol: SplashScreenProtocol
     weak var delegate: SplashScreenPresenterDelegate?
     let searchService = SearchService()
-    var arrCharacters: [Character] = []
+    public var arrCharacters: [Character] = []
     private let limit = 100
     private var offset = 0
     var progress: Double = 0

@@ -12,16 +12,11 @@ import SDWebImage
 class CharactersListTableViewCell: UITableViewCell {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    let imageType = "/landscape_incredible."
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
@@ -29,9 +24,16 @@ class CharactersListTableViewCell: UITableViewCell {
 extension CharactersListTableViewCell {
     func configureWithCharacter(character: Character) {
         nameLabel.text = character.name
-        guard let path = character.thumbnail?.path else { return }
+        guard var path = character.thumbnail?.path else { return }
+        path.insert("s", at: path.index(path.startIndex, offsetBy: +4))
         guard let imageExtension = character.thumbnail?.imageExtension else { return }
-        let imageType = "/landscape_small."
-        backgroundImageView.sd_setImage(with: URL(string: path+imageType+imageExtension), placeholderImage: nil)
+        
+        getImage(urlString: path+imageType+imageExtension) { backgroundImage in
+            self.setNeedsDisplay()
+        }
+    }
+    
+    func getImage(urlString: String, completion: @escaping (UIImage) -> ()) {
+        backgroundImageView.sd_setImage(with: URL(string: urlString), placeholderImage: nil)
     }
 }

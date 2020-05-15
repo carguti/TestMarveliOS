@@ -50,18 +50,6 @@ struct Character: Decodable {
     var stories: StoryList?
     var events: EventList?
     var urls: [Url]?
-    
-    static func character(from data: Data) -> Character? {
-        let decoder = JSONDecoder()
-        
-        guard let result = try? decoder.decode(Character.self, from: data) else {
-            print("Error parsing data")
-            
-            return nil
-        }
-        
-        return result
-    }
 }
 
 struct Url: Decodable {

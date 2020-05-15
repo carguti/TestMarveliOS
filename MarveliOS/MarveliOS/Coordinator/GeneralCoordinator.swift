@@ -54,5 +54,7 @@ extension GeneralCoordinator: CharactersListPresenterDelegate {
 }
 
 extension GeneralCoordinator: CharacterDetailPresenterDelegate {
-    
+    func buttonBackPressed() {
+        showSplashScreen()
+    }
 }

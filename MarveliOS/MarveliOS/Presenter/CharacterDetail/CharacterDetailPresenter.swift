@@ -11,7 +11,7 @@ import Foundation
 
 
 protocol CharacterDetailPresenterDelegate: class {
-    
+    func buttonBackPressed()
 }
 
 class CharacterDetailPresenter {
@@ -19,13 +19,18 @@ class CharacterDetailPresenter {
     weak var delegate: CharacterDetailPresenterDelegate?
     let searchService = SearchService()
     
-    init(characterDetailProtocol: CharacterDetailProtocol) {
+    init(characterDetailProtocol: CharacterDetailProtocol, delegate: CharacterDetailPresenterDelegate?) {
         self.characterDetailProtocol = characterDetailProtocol
+        self.delegate = delegate
     }
     
     func getCharacterDetail(character: Character?, completion: @escaping (CharacterDataWrapper) -> ()) {
         searchService.getCharacter(id: "\(character?.id ?? 0)") { character in
             self.characterDetailProtocol.selectedCharacter(character: character.data?.results?[0])
         }
+    }
+    
+    func buttonBackPressed() {
+        delegate?.buttonBackPressed()
     }
 }
