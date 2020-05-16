@@ -55,6 +55,6 @@ extension GeneralCoordinator: CharactersListPresenterDelegate {
 
 extension GeneralCoordinator: CharacterDetailPresenterDelegate {
     func buttonBackPressed() {
-        showSplashScreen()
+        showCharactersListScreen(characters: CharactersManager.shared.getCharacters())
     }
 }

@@ -37,6 +37,7 @@ class SplashScreenPresenter {
             if self.offset <= total {
                 self.splashScreenShown()
             } else {
+                CharactersManager.shared.arrCharacters = self.arrCharacters
                 self.delegate?.goToCharactersList(characters: self.arrCharacters)
             }
         }
