@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IvX-DE-74m">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character Detail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FS-sZ-PCM">
                             <rect key="frame" x="24" y="30" width="366" height="26.5"/>
@@ -31,8 +31,8 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCW-yE-6b2">
-                            <rect key="frame" x="0.0" y="59" width="414" height="1"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <rect key="frame" x="0.0" y="79" width="414" height="1"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="aCI-Ch-LG6"/>
                             </constraints>
@@ -62,7 +62,7 @@
                         <constraint firstAttribute="trailing" secondItem="KCW-yE-6b2" secondAttribute="trailing" id="EKV-Nd-KWq"/>
                         <constraint firstItem="5FS-sZ-PCM" firstAttribute="centerY" secondItem="tlE-Qe-BAA" secondAttribute="centerY" id="JRg-5i-f6a"/>
                         <constraint firstItem="tlE-Qe-BAA" firstAttribute="centerY" secondItem="s1D-CH-oE5" secondAttribute="centerY" id="Lee-tq-Fb8"/>
-                        <constraint firstAttribute="height" constant="60" id="QCN-vH-8mu"/>
+                        <constraint firstAttribute="height" constant="80" id="QCN-vH-8mu"/>
                         <constraint firstItem="tlE-Qe-BAA" firstAttribute="leading" secondItem="IvX-DE-74m" secondAttribute="leading" constant="24" id="WyO-RS-fos"/>
                         <constraint firstItem="KCW-yE-6b2" firstAttribute="leading" secondItem="IvX-DE-74m" secondAttribute="leading" id="Zgd-gq-TXu"/>
                         <constraint firstItem="tlE-Qe-BAA" firstAttribute="centerX" secondItem="s1D-CH-oE5" secondAttribute="centerX" id="mP1-kM-PAj"/>
@@ -71,21 +71,21 @@
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d8H-7q-G1I">
-                    <rect key="frame" x="0.0" y="60" width="414" height="836"/>
+                    <rect key="frame" x="0.0" y="80" width="414" height="816"/>
                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJo-TH-KQ7">
-                    <rect key="frame" x="0.0" y="60" width="414" height="836"/>
+                    <rect key="frame" x="0.0" y="80" width="414" height="816"/>
                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiU-sf-q5x">
-                    <rect key="frame" x="24" y="86" width="366" height="0.0"/>
+                    <rect key="frame" x="24" y="106" width="366" height="0.0"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6e-zA-kvS">
-                    <rect key="frame" x="24" y="126" width="366" height="0.0"/>
+                    <rect key="frame" x="24" y="146" width="366" height="0.0"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
