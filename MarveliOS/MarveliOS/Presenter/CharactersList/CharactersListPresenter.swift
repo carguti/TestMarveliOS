@@ -17,6 +17,7 @@ class CharactersListPresenter {
     weak var delegate: CharactersListPresenterDelegate?
     let searchService = SearchService()
     var arrCharacters: [Character] = []
+    var characterNames: [String] = []
     
     init(charactersListProtocol: CharacterListProtocol, delegate: CharactersListPresenterDelegate?) {
         self.charactersListProtocol = charactersListProtocol
@@ -25,5 +26,15 @@ class CharactersListPresenter {
     
     func didSelectedCharacter(character: Character) {
         self.delegate?.showCharacterDetail(character: character)
+    }
+    
+    func getCharactersNames(characters: [Character]) -> [String]? {
+        for character in characters {
+            if let name = character.name {
+                characterNames.append(name)
+            }
+        }
+        
+        return characterNames
     }
 }

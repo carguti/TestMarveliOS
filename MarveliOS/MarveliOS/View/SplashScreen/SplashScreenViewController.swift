@@ -19,7 +19,6 @@ class SplashScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = true
         configureViews()
         presenter?.splashScreenShown()
     }
@@ -27,7 +26,8 @@ class SplashScreenViewController: UIViewController {
 
 extension SplashScreenViewController {
     func configureViews() {
-        self.view.backgroundColor?.withAlphaComponent(0.5)
+        view.backgroundColor?.withAlphaComponent(0.5)
+        navigationController?.isNavigationBarHidden = true
     }
 }
 

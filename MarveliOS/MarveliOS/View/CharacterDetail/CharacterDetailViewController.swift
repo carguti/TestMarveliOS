@@ -31,6 +31,10 @@ class CharacterDetailViewController: UIViewController {
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     @IBAction func buttonBackPressed(_ sender: Any) {
         presenter?.buttonBackPressed()
     }
