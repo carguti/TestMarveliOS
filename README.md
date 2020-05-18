@@ -1,4 +1,4 @@
-# MarveliOS
+# BqTestiOS
 
 MarveliOS is an App that uses Marel Official API to get marvel characters and show the detail of a specific character. 
 For personal purposes only, not with comercial use.
@@ -19,11 +19,9 @@ I have added a SplashScreen because the MarvelAPI doesn't accept real pagination
 
 In character detail screen, it's shown characters's name, description and a background image of itself.
 
-## Extra work
+## Search functionality
 
-I have added a character search functionality beacause there too many characters, and it is very difficult to find the one you want only doing scroll.
-
-It's a dynamic search, it shows the results while the user writes in the SearchBar.
+It's a dynamic search, it shows the results in current TableView while the user writes in the SearchBar.
 
 ## Use of Frameworks
 
