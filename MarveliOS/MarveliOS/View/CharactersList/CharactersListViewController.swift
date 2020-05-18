@@ -17,6 +17,15 @@ class CharactersListViewController: UIViewController {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var arenaImageView: UIImageView!
+    @IBOutlet weak var arenaLabel: UILabel!
+    
+    var isArenaMode: Bool = false
+    
+    @IBAction func arenaButtonPressed(_ sender: Any) {
+        isArenaMode = !isArenaMode
+        configureView()
+    }
     
     var presenter: CharactersListPresenter?
     let searchService = SearchService()
@@ -38,6 +47,7 @@ class CharactersListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureView()
         getCharactersNames()
         configureSearchBar()
         configureTable()
@@ -51,6 +61,12 @@ class CharactersListViewController: UIViewController {
 }
 
 extension CharactersListViewController {
+    private func configureView() {
+        labelTitle.text = (isArenaMode == true) ? "Arena" : "Characters"
+        arenaLabel.text = (isArenaMode == true) ? "List" : "Arena"
+        arenaImageView.image = (isArenaMode == true) ? UIImage.init(named: "ListIcon") : UIImage.init(named: "ArenaIcon")
+    }
+    
     private func configureTable() {
          tableView.register(UINib(nibName: "CharactersListTableViewCell", bundle: nil), forCellReuseIdentifier: "CharactersListTableViewCell")
     }

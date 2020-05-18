@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharactersListViewController" customModule="MarveliOS" customModuleProvider="target">
             <connections>
+                <outlet property="arenaImageView" destination="2D5-GC-rji" id="LcE-gr-Mfi"/>
+                <outlet property="arenaLabel" destination="kAP-0b-JY7" id="yy9-bL-vy9"/>
                 <outlet property="headerView" destination="d3Q-Sn-qdN" id="0kL-Bc-xyh"/>
                 <outlet property="labelTitle" destination="wsp-BY-NxS" id="od7-ry-xMN"/>
                 <outlet property="searchView" destination="RTO-AR-KDy" id="VXD-0l-tck"/>
@@ -30,13 +32,41 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArenaIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2D5-GC-rji">
+                            <rect key="frame" x="311" y="24.5" width="37.5" height="37.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="2D5-GC-rji" secondAttribute="height" multiplier="1:1" id="Z1E-de-5Vi"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arena" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-0b-JY7">
+                            <rect key="frame" x="308" y="60" width="43" height="20"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvs-Cg-Hlb">
+                            <rect key="frame" x="304" y="24.5" width="51" height="55.5"/>
+                            <connections>
+                                <action selector="arenaButtonPressed:" destination="-1" eventType="touchUpInside" id="ltU-I7-peD"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.92941176469999998" green="0.1137254902" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstItem="bvs-Cg-Hlb" firstAttribute="top" secondItem="2D5-GC-rji" secondAttribute="top" id="0BZ-Kw-SPf"/>
+                        <constraint firstItem="2D5-GC-rji" firstAttribute="centerY" secondItem="wsp-BY-NxS" secondAttribute="centerY" id="89R-af-kBd"/>
+                        <constraint firstItem="wsp-BY-NxS" firstAttribute="centerX" secondItem="d3Q-Sn-qdN" secondAttribute="centerX" id="8fv-CJ-2F9"/>
+                        <constraint firstItem="2D5-GC-rji" firstAttribute="centerX" secondItem="kAP-0b-JY7" secondAttribute="centerX" id="9e8-my-r9z"/>
+                        <constraint firstAttribute="bottom" secondItem="kAP-0b-JY7" secondAttribute="bottom" id="Dnd-jt-wn1"/>
                         <constraint firstAttribute="height" constant="80" id="Lfh-o2-0WE"/>
                         <constraint firstItem="wsp-BY-NxS" firstAttribute="top" secondItem="d3Q-Sn-qdN" secondAttribute="top" constant="30" id="SwO-LZ-Zck"/>
-                        <constraint firstAttribute="trailing" secondItem="wsp-BY-NxS" secondAttribute="trailing" constant="24" id="iSZ-7F-oGb"/>
+                        <constraint firstItem="bvs-Cg-Hlb" firstAttribute="trailing" secondItem="kAP-0b-JY7" secondAttribute="trailing" constant="4" id="caA-nu-1sO"/>
+                        <constraint firstItem="bvs-Cg-Hlb" firstAttribute="bottom" secondItem="kAP-0b-JY7" secondAttribute="bottom" id="dO5-UB-uXj"/>
+                        <constraint firstItem="2D5-GC-rji" firstAttribute="bottom" secondItem="kAP-0b-JY7" secondAttribute="top" constant="2" id="hu2-P2-U2r"/>
+                        <constraint firstItem="kAP-0b-JY7" firstAttribute="centerX" secondItem="bvs-Cg-Hlb" secondAttribute="centerX" id="t9Y-Cs-hzy"/>
                         <constraint firstItem="wsp-BY-NxS" firstAttribute="leading" secondItem="d3Q-Sn-qdN" secondAttribute="leading" constant="24" id="vv0-EW-nSM"/>
+                        <constraint firstItem="bvs-Cg-Hlb" firstAttribute="leading" secondItem="kAP-0b-JY7" secondAttribute="leading" constant="-4" id="y35-DE-K8z"/>
+                        <constraint firstAttribute="trailing" secondItem="kAP-0b-JY7" secondAttribute="trailing" constant="24" id="zz3-Fo-buh"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTO-AR-KDy">
@@ -95,4 +125,7 @@
             <point key="canvasLocation" x="140" y="128.18590704647679"/>
         </view>
     </objects>
+    <resources>
+        <image name="ArenaIcon" width="37.5" height="37.5"/>
+    </resources>
 </document>
