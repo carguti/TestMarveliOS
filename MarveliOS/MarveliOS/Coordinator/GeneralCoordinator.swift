@@ -37,6 +37,11 @@ extension GeneralCoordinator {
         let scene = CharactersListFactory.makeCharacterDetail(delegate: self, character: character)
         navigationController.viewControllers = [scene]
     }
+    
+    func showArenaScreen(characters: [Character]) {
+        let scene = CharactersListFactory.makeArena(delegate: self, characters: characters)
+        navigationController.viewControllers = [scene]
+    }
 }
 
 extension GeneralCoordinator: SplashScreenPresenterDelegate {
@@ -51,10 +56,20 @@ extension GeneralCoordinator: CharactersListPresenterDelegate {
             showCharacterDetailScreen(character: character)
         }
     }
+    
+    func showArena(arrCharacters: [Character]) {
+        showArenaScreen(characters: arrCharacters)
+    }
 }
 
 extension GeneralCoordinator: CharacterDetailPresenterDelegate {
     func buttonBackPressed() {
+        showCharactersListScreen(characters: CharactersManager.shared.getCharacters())
+    }
+}
+
+extension GeneralCoordinator: ArenaPresenterDelegate {
+    func pressedButtonBack() {
         showCharactersListScreen(characters: CharactersManager.shared.getCharacters())
     }
 }

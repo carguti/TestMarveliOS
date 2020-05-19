@@ -19,12 +19,25 @@ class CharactersListViewController: UIViewController {
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var arenaImageView: UIImageView!
     @IBOutlet weak var arenaLabel: UILabel!
+    @IBOutlet weak var labelSelectCharacters: UILabel!
+    @IBOutlet weak var fighter1Label: UILabel!
+    @IBOutlet weak var fighter2Label: UILabel!
+    @IBOutlet weak var buttonFight: UIButton!
+    @IBOutlet weak var horizontalStack: UIStackView!
     
     var isArenaMode: Bool = false
+    var arrArenaCharacters: [Character] = []
     
     @IBAction func arenaButtonPressed(_ sender: Any) {
         isArenaMode = !isArenaMode
         configureView()
+        horizontalStack.isHidden = false
+    }
+    
+    @IBAction func fightButtonPressed(_ sender: Any) {
+        if arrArenaCharacters.count == 2 {
+            presenter?.goToArena(arrCharacters: arrArenaCharacters)
+        }
     }
     
     var presenter: CharactersListPresenter?
@@ -65,6 +78,11 @@ extension CharactersListViewController {
         labelTitle.text = (isArenaMode == true) ? "Arena" : "Characters"
         arenaLabel.text = (isArenaMode == true) ? "List" : "Arena"
         arenaImageView.image = (isArenaMode == true) ? UIImage.init(named: "ListIcon") : UIImage.init(named: "ArenaIcon")
+        labelSelectCharacters.isHidden = !isArenaMode
+        horizontalStack.isHidden = true
+        fighter1Label.isHidden = true
+        fighter2Label.isHidden = true
+        buttonFight.isHidden = true
     }
     
     private func configureTable() {
@@ -106,8 +124,6 @@ extension CharactersListViewController: UISearchResultsUpdating {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
     }
-    
-    
 }
 
 extension CharactersListViewController: UITableViewDataSource {
@@ -143,8 +159,28 @@ extension CharactersListViewController: UITableViewDelegate {
             selectedCharacter = arrCharacters[indexPath.row]
         }
         
-        if let selectedCharacted = selectedCharacter {
-            presenter?.didSelectedCharacter(character: selectedCharacted)
+        guard let selectedCharacter = selectedCharacter else { return }
+        
+        if isArenaMode {
+            if arrArenaCharacters.count == 0 {
+                arrArenaCharacters.append(selectedCharacter)
+                if let name1 = selectedCharacter.name {
+                    fighter1Label.text = "Fighter 1: "+name1
+                }
+                fighter1Label.isHidden = false
+            } else if arrArenaCharacters.count == 1 {
+                arrArenaCharacters.append(selectedCharacter)
+                if let name2 = selectedCharacter.name {
+                    fighter2Label.text = "Fighter 2: "+name2
+                }
+                fighter2Label.isHidden = false
+                buttonFight.isHidden = false
+            }
+        /*}else {
+                presenter?.goToArena(arrCharacters: arrArenaCharacters)
+            }*/
+        } else {
+            presenter?.didSelectedCharacter(character: selectedCharacter)
         }
     }
 }

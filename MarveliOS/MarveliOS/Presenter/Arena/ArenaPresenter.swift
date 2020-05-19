@@ -8,10 +8,20 @@
 
 import Foundation
 
-protocol ArenaPresenterPresenterDelegate: class {
-    
+protocol ArenaPresenterDelegate: class {
+    func pressedButtonBack()
 }
 
 class ArenaPresenter {
+    let arenaProtocol: ArenaProtocol
+    weak var delegate: ArenaPresenterDelegate?
     
+    init(arenaProtocol: ArenaProtocol, delegate: ArenaPresenterDelegate?) {
+        self.arenaProtocol = arenaProtocol
+        self.delegate = delegate
+    }
+    
+    func buttonBackPressed() {
+        delegate?.pressedButtonBack()
+    }
 }
