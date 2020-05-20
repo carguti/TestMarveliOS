@@ -1,4 +1,4 @@
-# TestiOS
+# TestMarveliOS
 
 MarveliOS is an App that uses Marel Official API to get marvel characters and show the detail of a specific character. 
 For personal purposes only, not with comercial use.
@@ -21,9 +21,7 @@ In character detail screen, it's shown characters's name, description and a back
 
 ## Extra work
 
-Search functionality: It's a dynamic search, it shows the results in current TableView while the user writes in the SearchBar.
-Arena mode: In arena mode (click Arena button in Characters list screen) you can choose two Characters to fight between them with the number of appearances in comics as attack power. A pop-up shows who is the winner; this pop-up has a option to go to Ranking to show all the characters who have fight.
-Ranking: A ranking of the characters whi have fight, sorted by attack power.
+Ranking button: Button in characters list that opens ranking.
 
 ## Use of Frameworks
 
