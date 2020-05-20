@@ -10,6 +10,8 @@ import Foundation
 
 protocol CharactersListPresenterDelegate: class {
     func showCharacterDetail(character: Character?)
+    func showArena(arrCharacters: [Character])
+    func goToCharacterRanking()
 }
 
 class CharactersListPresenter {
@@ -23,9 +25,15 @@ class CharactersListPresenter {
         self.charactersListProtocol = charactersListProtocol
         self.delegate = delegate
     }
-    
+}
+
+extension CharactersListPresenter {
     func didSelectedCharacter(character: Character) {
-        self.delegate?.showCharacterDetail(character: character)
+        delegate?.showCharacterDetail(character: character)
+    }
+    
+    func goToArena(arrCharacters: [Character]) {
+        delegate?.showArena(arrCharacters: arrCharacters)
     }
     
     func getCharactersNames(characters: [Character]) -> [String]? {
@@ -34,7 +42,10 @@ class CharactersListPresenter {
                 characterNames.append(name)
             }
         }
-        
         return characterNames
+    }
+    
+    func goToRanking() {
+        delegate?.goToCharacterRanking()
     }
 }

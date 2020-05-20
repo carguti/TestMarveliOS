@@ -11,10 +11,17 @@ import Foundation
 class CharactersManager {
     static let shared = CharactersManager()
     var arrCharacters: [Character]?
+    var arrRankingCharacters: [Character]?
     
     private init(){}
-    
-    func getCharacters() -> [Character]?{
+}
+
+extension CharactersManager {
+    func getCharacters() -> [Character]? {
         return arrCharacters
+    }
+    
+    func getRankingCharacters() -> [Character]? {
+        return arrRankingCharacters
     }
 }

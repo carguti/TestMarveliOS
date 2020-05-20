@@ -23,7 +23,9 @@ class CharacterDetailPresenter {
         self.characterDetailProtocol = characterDetailProtocol
         self.delegate = delegate
     }
-    
+}
+
+extension CharacterDetailPresenter {
     func getCharacterDetail(character: Character?, completion: @escaping (CharacterDataWrapper) -> ()) {
         searchService.getCharacter(id: "\(character?.id ?? 0)") { character in
             self.characterDetailProtocol.selectedCharacter(character: character.data?.results?[0])

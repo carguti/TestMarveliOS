@@ -18,4 +18,14 @@ struct CharactersListFactory {
         }
         return viewController
     }
+    
+    static func makeArena(delegate: ArenaPresenterDelegate?, characters: [Character]?) -> ArenaViewController {
+        let viewController = ArenaViewController()
+        let presenter = ArenaPresenter(arenaProtocol: viewController, delegate: delegate)
+        viewController.presenter = presenter
+        if let characters = characters {
+            viewController.characters = characters
+        }
+        return viewController
+    }
 }
