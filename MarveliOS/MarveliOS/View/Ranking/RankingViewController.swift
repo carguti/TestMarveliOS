@@ -53,7 +53,7 @@ extension RankingViewController: UITableViewDataSource {
         let characterCell = tableView.dequeueReusableCell(withIdentifier: "CharactersListTableViewCell", for: indexPath) as! CharactersListTableViewCell
         let character: Character
         character = sortedRankingCharacters[indexPath.row]
-        characterCell.configureWithCharacter(character: character)
+        characterCell.configureRankingView(character: character, position: indexPath.row+1)
         
         return characterCell
     }

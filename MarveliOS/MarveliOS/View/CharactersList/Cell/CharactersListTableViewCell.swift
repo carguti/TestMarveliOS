@@ -33,6 +33,18 @@ extension CharactersListTableViewCell {
         }
     }
     
+    func configureRankingView(character: Character, position: Int) {
+        nameLabel.text = "\(position)º"+". "+(character.name ?? "")
+        nameLabel.textAlignment = .left
+        guard var path = character.thumbnail?.path else { return }
+        path.insert("s", at: path.index(path.startIndex, offsetBy: +4))
+        guard let imageExtension = character.thumbnail?.imageExtension else { return }
+        
+        getImage(urlString: path+imageType+imageExtension) { backgroundImage in
+            self.setNeedsDisplay()
+        }
+    }
+    
     func getImage(urlString: String, completion: @escaping (UIImage) -> ()) {
         backgroundImageView.sd_setImage(with: URL(string: urlString), placeholderImage: nil)
     }
