@@ -42,6 +42,11 @@ extension GeneralCoordinator {
         let scene = CharactersListFactory.makeArena(delegate: self, characters: characters)
         navigationController.viewControllers = [scene]
     }
+    
+    func showRankingScreen() {
+        let scene = ArenaFactory.makeRankingScreen(delegate: self)
+        navigationController.viewControllers = [scene]
+    }
 }
 
 extension GeneralCoordinator: SplashScreenPresenterDelegate {
@@ -71,5 +76,20 @@ extension GeneralCoordinator: CharacterDetailPresenterDelegate {
 extension GeneralCoordinator: ArenaPresenterDelegate {
     func pressedButtonBack() {
         showCharactersListScreen(characters: CharactersManager.shared.getCharacters())
+    }
+    
+    
+    func goToRanking() {
+        showRankingScreen()
+    }
+}
+
+extension GeneralCoordinator: RankingPresenterDelegate {
+    func goBackButtonPressed() {
+        showCharactersListScreen(characters: CharactersManager.shared.getCharacters())
+    }
+    
+    func showCharacter(character: Character?) {
+        showCharacterDetail(character: character)
     }
 }

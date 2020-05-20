@@ -10,6 +10,7 @@ import Foundation
 
 protocol ArenaPresenterDelegate: class {
     func pressedButtonBack()
+    func goToRanking()
 }
 
 class ArenaPresenter {
@@ -23,5 +24,9 @@ class ArenaPresenter {
     
     func buttonBackPressed() {
         delegate?.pressedButtonBack()
+    }
+    
+    func goToRanking() {
+        delegate?.goToRanking()
     }
 }

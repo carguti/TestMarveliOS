@@ -20,15 +20,18 @@ class ArenaViewController: UIViewController {
     @IBOutlet weak var bottomCharacterName: UILabel!
     @IBOutlet weak var bottomCharacterAttack: UILabel!
     @IBOutlet weak var bottomBgImageView: UIImageView!
+    @IBOutlet weak var vsImageView: UIImageView!
     
     var presenter: ArenaPresenter?
     var characters: [Character] = []
     let imageType = "/landscape_incredible."
+    var characterWinner: Character?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureViews()
+        startCountdown()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,6 +77,53 @@ extension ArenaViewController {
     
     func getBottomImage(urlString: String, completion: @escaping (UIImage) -> ()) {
         bottomBgImageView.sd_setImage(with: URL(string: urlString), placeholderImage: nil)
+    }
+    
+    func startCountdown() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.vsImageView.image = UIImage.init(named: "icnBoom")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.vsImageView.image = UIImage.init(named: "icnPfoom")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.vsImageView.image = UIImage.init(named: "icnBazinga")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.showWinnerAlert()
+                    }
+                }
+            }
+        }
+    }
+    
+    func showWinnerAlert() {
+        getWinner()
+    }
+    
+    func getWinner() {
+        if let character1Power = characters[0].comics?.items?.count, let character2Power = characters[1].comics?.items?.count {
+            if character1Power < character2Power {
+                characterWinner = characters[1]
+            } else if character1Power > character2Power {
+                characterWinner = characters[0]
+            } else {
+                characterWinner = nil
+            }
+        }
+        
+        var alertMessage: String?
+        if let winner = characterWinner {
+            alertMessage = winner.name
+        } else {
+            alertMessage = "Draw!"
+        }
+        
+        let winnerAlert = UIAlertController(title: "WINNER!!".uppercased(), message: alertMessage, preferredStyle: .alert)
+        let actionRanking = UIAlertAction(title: "Go to Ranking!", style: .default, handler: { action in
+            self.presenter?.goToRanking()
+        })
+        let actionAccept = UIAlertAction(title: "Accept", style: .default, handler: nil)
+        winnerAlert.addAction(actionRanking)
+        winnerAlert.addAction(actionAccept)
+        present(winnerAlert, animated: true)
     }
 }
 

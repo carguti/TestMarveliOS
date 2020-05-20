@@ -36,6 +36,11 @@ class CharactersListViewController: UIViewController {
     
     @IBAction func fightButtonPressed(_ sender: Any) {
         if arrArenaCharacters.count == 2 {
+            if CharactersManager.shared.arrRankingCharacters == nil {
+                CharactersManager.shared.arrRankingCharacters = arrArenaCharacters
+            } else {
+                CharactersManager.shared.arrRankingCharacters?.append(contentsOf: arrArenaCharacters)
+            }
             presenter?.goToArena(arrCharacters: arrArenaCharacters)
         }
     }
@@ -176,9 +181,6 @@ extension CharactersListViewController: UITableViewDelegate {
                 fighter2Label.isHidden = false
                 buttonFight.isHidden = false
             }
-        /*}else {
-                presenter?.goToArena(arrCharacters: arrArenaCharacters)
-            }*/
         } else {
             presenter?.didSelectedCharacter(character: selectedCharacter)
         }

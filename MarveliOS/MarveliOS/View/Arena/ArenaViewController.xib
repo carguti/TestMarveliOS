@@ -16,6 +16,7 @@
                 <outlet property="topCharacterAttack" destination="H80-iV-vlK" id="R5I-pa-qj7"/>
                 <outlet property="topCharacterName" destination="EHR-Xc-38B" id="eJQ-Yz-CGi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="vsImageView" destination="q1T-Gk-hp7" id="Neo-QS-okn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -10,5 +10,10 @@ import Foundation
 
 
 struct ArenaFactory {
-    
+    static func makeRankingScreen(delegate: RankingPresenterDelegate?) -> RankingViewController {
+        let viewController = RankingViewController()
+        let presenter = RankingPresenter(rankingProtocol: viewController, delegate: delegate)
+        viewController.presenter = presenter
+        return viewController
+    }
 }
