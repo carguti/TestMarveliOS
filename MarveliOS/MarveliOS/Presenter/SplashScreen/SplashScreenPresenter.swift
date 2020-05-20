@@ -25,7 +25,9 @@ class SplashScreenPresenter {
         self.splashScreenProtocol = splashScreenProtocol
         self.delegate = delegate
     }
-    
+}
+
+extension SplashScreenPresenter {
     func splashScreenShown() {
         searchService.getCharacters(name: nil, limit: limit, offset: offset) { characters in
             guard let charactersList = characters.data?.results else { return }

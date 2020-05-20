@@ -22,10 +22,8 @@ struct CharacterDataWrapper: Decodable {
         
         guard let result = try? decoder.decode(CharacterDataWrapper.self, from: data) else {
             print("Error parsing data")
-            
             return nil
         }
-        
         return result
     }
 }

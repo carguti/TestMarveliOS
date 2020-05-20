@@ -21,7 +21,9 @@ class ArenaPresenter {
         self.arenaProtocol = arenaProtocol
         self.delegate = delegate
     }
-    
+}
+
+extension ArenaPresenter {
     func buttonBackPressed() {
         delegate?.pressedButtonBack()
     }

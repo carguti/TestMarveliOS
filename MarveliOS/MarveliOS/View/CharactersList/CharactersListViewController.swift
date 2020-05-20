@@ -26,8 +26,23 @@ class CharactersListViewController: UIViewController {
     @IBOutlet weak var horizontalStack: UIStackView!
     
     
-    var isArenaMode: Bool = false
-    var arrArenaCharacters: [Character] = []
+    private var isArenaMode: Bool = false
+    private var arrArenaCharacters: [Character] = []
+    var presenter: CharactersListPresenter?
+    private let searchService = SearchService()
+    var arrCharacters: [Character] = []
+    private var selectedCharacter: Character?
+    private var arrCharacterNames: [String]?
+    private var filteredCharacters: [Character] = []
+    private let searchController = UISearchController(searchResultsController: nil)
+    
+    private var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
     
     @IBAction func arenaButtonPressed(_ sender: Any) {
         isArenaMode = !isArenaMode
@@ -49,24 +64,7 @@ class CharactersListViewController: UIViewController {
     @IBAction func rankingButtonPressed(_ sender: Any) {
         presenter?.goToRanking()
     }
-    
-    var presenter: CharactersListPresenter?
-    let searchService = SearchService()
-    
-    var arrCharacters: [Character] = []
-    var selectedCharacter: Character?
-    var arrCharacterNames: [String]?
-    var filteredCharacters: [Character] = []
-    let searchController = UISearchController(searchResultsController: nil)
-    
-    var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
-    }
-    
-    var isFiltering: Bool {
-      return searchController.isActive && !isSearchBarEmpty
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -99,19 +97,18 @@ extension CharactersListViewController {
          tableView.register(UINib(nibName: "CharactersListTableViewCell", bundle: nil), forCellReuseIdentifier: "CharactersListTableViewCell")
     }
     
-    func getCharactersNames() {
+    private func getCharactersNames() {
         arrCharacterNames = presenter?.getCharactersNames(characters: self.arrCharacters)
     }
     
-    func filterContentForSearchText(_ searchText: String, category: Character? = nil) {
+    private func filterContentForSearchText(_ searchText: String, category: Character? = nil) {
       filteredCharacters = arrCharacters.filter { (character: Character) -> Bool in
         return character.name!.lowercased().contains(searchText.lowercased())
       }
-      
       tableView.reloadData()
     }
     
-    func configureSearchBar() {
+    private func configureSearchBar() {
         let searchBar = searchController.searchBar
         searchView.addSubview(searchController.searchBar)
         searchController.searchResultsUpdater = self
@@ -192,6 +189,4 @@ extension CharactersListViewController: UITableViewDelegate {
     }
 }
 
-extension CharactersListViewController: CharacterListProtocol {
-    
-}
+extension CharactersListViewController: CharacterListProtocol { }

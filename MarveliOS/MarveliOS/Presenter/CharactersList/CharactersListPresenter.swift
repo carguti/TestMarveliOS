@@ -25,7 +25,9 @@ class CharactersListPresenter {
         self.charactersListProtocol = charactersListProtocol
         self.delegate = delegate
     }
-    
+}
+
+extension CharactersListPresenter {
     func didSelectedCharacter(character: Character) {
         delegate?.showCharacterDetail(character: character)
     }
@@ -40,7 +42,6 @@ class CharactersListPresenter {
                 characterNames.append(name)
             }
         }
-        
         return characterNames
     }
     

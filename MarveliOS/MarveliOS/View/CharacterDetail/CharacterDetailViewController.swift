@@ -53,7 +53,7 @@ extension CharacterDetailViewController {
         }
     }
     
-    func getImage(urlString: String, completion: @escaping (UIImage) -> ()) {
+    private func getImage(urlString: String, completion: @escaping (UIImage) -> ()) {
         backgroundImageView.sd_setImage(with: URL(string: urlString), placeholderImage: nil)
     }
 }

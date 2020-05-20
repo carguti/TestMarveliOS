@@ -9,9 +9,7 @@
 import UIKit
 import SDWebImage
 
-protocol ArenaProtocol: class {
-    
-}
+protocol ArenaProtocol: class { }
 
 class ArenaViewController: UIViewController {
     @IBOutlet weak var topCharacterName: UILabel!
@@ -24,8 +22,8 @@ class ArenaViewController: UIViewController {
     
     var presenter: ArenaPresenter?
     var characters: [Character] = []
-    let imageType = "/landscape_incredible."
-    var characterWinner: Character?
+    private let imageType = "/landscape_incredible."
+    private var characterWinner: Character?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,15 +69,15 @@ extension ArenaViewController {
         }
     }
     
-    func getTopImage(urlString: String, completion: @escaping (UIImage) -> ()) {
+    private func getTopImage(urlString: String, completion: @escaping (UIImage) -> ()) {
         topBgImageView.sd_setImage(with: URL(string: urlString), placeholderImage: nil)
     }
     
-    func getBottomImage(urlString: String, completion: @escaping (UIImage) -> ()) {
+    private func getBottomImage(urlString: String, completion: @escaping (UIImage) -> ()) {
         bottomBgImageView.sd_setImage(with: URL(string: urlString), placeholderImage: nil)
     }
     
-    func startCountdown() {
+    private func startCountdown() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.vsImageView.image = UIImage.init(named: "icnBoom")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -94,11 +92,11 @@ extension ArenaViewController {
         }
     }
     
-    func showWinnerAlert() {
+    private func showWinnerAlert() {
         getWinner()
     }
     
-    func getWinner() {
+    private func getWinner() {
         if let character1Power = characters[0].comics?.items?.count, let character2Power = characters[1].comics?.items?.count {
             if character1Power < character2Power {
                 characterWinner = characters[1]
@@ -127,6 +125,4 @@ extension ArenaViewController {
     }
 }
 
-extension ArenaViewController: ArenaProtocol {
-    
-}
+extension ArenaViewController: ArenaProtocol { }

@@ -12,13 +12,11 @@ import SDWebImage
 class CharactersListTableViewCell: UITableViewCell {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    let imageType = "/landscape_incredible."
+    private let imageType = "/landscape_incredible."
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
-    
 }
 
 extension CharactersListTableViewCell {
@@ -45,7 +43,7 @@ extension CharactersListTableViewCell {
         }
     }
     
-    func getImage(urlString: String, completion: @escaping (UIImage) -> ()) {
+    private func getImage(urlString: String, completion: @escaping (UIImage) -> ()) {
         backgroundImageView.sd_setImage(with: URL(string: urlString), placeholderImage: nil)
     }
 }

@@ -8,14 +8,12 @@
 
 import UIKit
 
-protocol RankingProtocol: class {
-    
-}
+protocol RankingProtocol: class { }
 
 class RankingViewController: UIViewController {
     var presenter: RankingPresenter?
-    var arrRankingCharacters: [Character] = []
-    var sortedRankingCharacters: [Character] = []
+    private var arrRankingCharacters: [Character] = []
+    private var sortedRankingCharacters: [Character] = []
     
     @IBOutlet weak var tableView: UITableView!
     

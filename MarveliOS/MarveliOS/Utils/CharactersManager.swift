@@ -14,7 +14,9 @@ class CharactersManager {
     var arrRankingCharacters: [Character]?
     
     private init(){}
-    
+}
+
+extension CharactersManager {
     func getCharacters() -> [Character]? {
         return arrCharacters
     }

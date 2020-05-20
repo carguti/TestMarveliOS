@@ -11,7 +11,6 @@
 		C04E2BB1246AFFE300892B8F /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E2BAF246AFFE300892B8F /* CharacterDetailViewController.swift */; };
 		C04E2BB2246AFFE300892B8F /* CharacterDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C04E2BB0246AFFE300892B8F /* CharacterDetailViewController.xib */; };
 		C04E2BB4246B105600892B8F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E2BB3246B105600892B8F /* UIView+Extension.swift */; };
-		C04E2BB6246B51CD00892B8F /* CharacterDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E2BB5246B51CD00892B8F /* CharacterDetailFactory.swift */; };
 		C04F9B27246FF50F009B803A /* CharactersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F9B26246FF50F009B803A /* CharactersManager.swift */; };
 		C0600FEF24668E37009FB024 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0600FEE24668E37009FB024 /* AppDelegate.swift */; };
 		C0600FF324668E37009FB024 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0600FF224668E37009FB024 /* ViewController.swift */; };
@@ -39,7 +38,6 @@
 		C09791B1247585BF0036D8A3 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09791AF247585BF0036D8A3 /* RankingViewController.swift */; };
 		C09791B2247585BF0036D8A3 /* RankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C09791B0247585BF0036D8A3 /* RankingViewController.xib */; };
 		C09791B4247585CF0036D8A3 /* RankingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09791B3247585CF0036D8A3 /* RankingPresenter.swift */; };
-		C09791B6247585DF0036D8A3 /* RankingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09791B5247585DF0036D8A3 /* RankingFactory.swift */; };
 		ED95E1E0401BF738B314C321 /* Pods_MarveliOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FE0D8751F7CEFB1EABC179 /* Pods_MarveliOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +48,6 @@
 		C04E2BAF246AFFE300892B8F /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		C04E2BB0246AFFE300892B8F /* CharacterDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailViewController.xib; sourceTree = "<group>"; };
 		C04E2BB3246B105600892B8F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		C04E2BB5246B51CD00892B8F /* CharacterDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailFactory.swift; sourceTree = "<group>"; };
 		C04F9B26246FF50F009B803A /* CharactersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersManager.swift; sourceTree = "<group>"; };
 		C0600FEB24668E37009FB024 /* MarveliOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarveliOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0600FEE24668E37009FB024 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +77,6 @@
 		C09791AF247585BF0036D8A3 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		C09791B0247585BF0036D8A3 /* RankingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingViewController.xib; sourceTree = "<group>"; };
 		C09791B3247585CF0036D8A3 /* RankingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingPresenter.swift; sourceTree = "<group>"; };
-		C09791B5247585DF0036D8A3 /* RankingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingFactory.swift; sourceTree = "<group>"; };
 		C6FE0D8751F7CEFB1EABC179 /* Pods_MarveliOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarveliOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -134,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				C04E2BAD246AFFC900892B8F /* CharacterDetailPresenter.swift */,
-				C04E2BB5246B51CD00892B8F /* CharacterDetailFactory.swift */,
 			);
 			path = CharacterDetail;
 			sourceTree = "<group>";
@@ -311,7 +306,6 @@
 			isa = PBXGroup;
 			children = (
 				C09791B3247585CF0036D8A3 /* RankingPresenter.swift */,
-				C09791B5247585DF0036D8A3 /* RankingFactory.swift */,
 			);
 			path = Ranking;
 			sourceTree = "<group>";
@@ -453,14 +447,12 @@
 				C0600FEF24668E37009FB024 /* AppDelegate.swift in Sources */,
 				C04F9B27246FF50F009B803A /* CharactersManager.swift in Sources */,
 				C09791AC2472F3DD0036D8A3 /* ArenaFactory.swift in Sources */,
-				C09791B6247585DF0036D8A3 /* RankingFactory.swift in Sources */,
 				C06010112466B07F009FB024 /* RespModel.swift in Sources */,
 				C06010162466F35F009FB024 /* SearchService.swift in Sources */,
 				C04E2BAE246AFFC900892B8F /* CharacterDetailPresenter.swift in Sources */,
 				C060102024684773009FB024 /* SplashScreenViewController.swift in Sources */,
 				C060102624684869009FB024 /* SplashScreenFactory.swift in Sources */,
 				C060103024684B3F009FB024 /* CharactersListFactory.swift in Sources */,
-				C04E2BB6246B51CD00892B8F /* CharacterDetailFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

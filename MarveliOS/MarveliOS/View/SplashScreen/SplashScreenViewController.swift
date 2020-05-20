@@ -25,7 +25,7 @@ class SplashScreenViewController: UIViewController {
 }
 
 extension SplashScreenViewController {
-    func configureViews() {
+    private func configureViews() {
         view.backgroundColor?.withAlphaComponent(0.5)
         navigationController?.isNavigationBarHidden = true
     }

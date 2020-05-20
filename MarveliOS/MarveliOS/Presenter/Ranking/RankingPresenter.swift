@@ -21,7 +21,9 @@ class RankingPresenter {
         self.rankingProtocol = rankingProtocol
         self.delegate = delegate
     }
-    
+}
+
+extension RankingPresenter {
     func goBackButtonPresenter() {
         delegate?.goBackButtonPressed()
     }
