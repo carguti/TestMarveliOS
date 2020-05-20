@@ -25,6 +25,7 @@ class CharactersListViewController: UIViewController {
     @IBOutlet weak var buttonFight: UIButton!
     @IBOutlet weak var horizontalStack: UIStackView!
     
+    
     var isArenaMode: Bool = false
     var arrArenaCharacters: [Character] = []
     
@@ -43,6 +44,10 @@ class CharactersListViewController: UIViewController {
             }
             presenter?.goToArena(arrCharacters: arrArenaCharacters)
         }
+    }
+    
+    @IBAction func rankingButtonPressed(_ sender: Any) {
+        presenter?.goToRanking()
     }
     
     var presenter: CharactersListPresenter?

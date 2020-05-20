@@ -65,6 +65,10 @@ extension GeneralCoordinator: CharactersListPresenterDelegate {
     func showArena(arrCharacters: [Character]) {
         showArenaScreen(characters: arrCharacters)
     }
+    
+    func goToCharacterRanking() {
+        showRankingScreen()
+    }
 }
 
 extension GeneralCoordinator: CharacterDetailPresenterDelegate {

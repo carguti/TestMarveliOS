@@ -11,6 +11,7 @@ import Foundation
 protocol CharactersListPresenterDelegate: class {
     func showCharacterDetail(character: Character?)
     func showArena(arrCharacters: [Character])
+    func goToCharacterRanking()
 }
 
 class CharactersListPresenter {
@@ -41,5 +42,9 @@ class CharactersListPresenter {
         }
         
         return characterNames
+    }
+    
+    func goToRanking() {
+        delegate?.goToCharacterRanking()
     }
 }
